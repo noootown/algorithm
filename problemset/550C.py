@@ -1,3 +1,4 @@
+# http://codeforces.com/contest/550/submission/11425005
 s = input()
 candidate = [str(x) for x in range(0, 1000, 8)]
 

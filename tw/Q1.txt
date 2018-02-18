@@ -1,0 +1,32 @@
+CREATE TABLE STUDENTS(
+  `STUDENT_ID` int(6) unsigned NOT NULL,
+  `STUDENT_NAME` varchar(200) NOT NULL,
+  `GENDER` varchar(200) NOT NULL,
+  `DEPT_ID` int(6) NOT NULL,
+PRIMARY KEY(`STUDENT_ID`)) DEFAULT CHARSET = utf8;
+
+INSERT INTO `STUDENTS`(`STUDENT_ID`, `STUDENT_NAME`, `GENDER`, `DEPT_ID`) VALUES
+('5', 'David', 'M', '5'),
+('1', 'Samantha', 'F', '4'),
+('3', 'Bob', 'M', '2'),
+('4', 'Scarlet', 'F', '5'),
+('2', 'Jane', 'F', '4');
+
+CREATE TABLE DEPARTMENTS(
+  `DEPT_ID` int(6) unsigned NOT NULL,
+  `DEPT_NAME` varchar(200) NOT NULL,
+PRIMARY KEY(`DEPT_ID`)) DEFAULT CHARSET = utf8;
+
+INSERT INTO `DEPARTMENTS`(`DEPT_ID`, `DEPT_NAME`) VALUES
+('5', 'Management'),
+('4', 'Resources'),
+('1', 'Production'),
+('3', 'Technical'),
+('2', 'Development');
+
+SELECT b.DEPT_NAME, COUNT(a.DEPT_ID) as count_stu
+FROM STUDENTS as a
+RIGHT JOIN DEPARTMENTS as b
+ON a.DEPT_ID = b.DEPT_ID
+GROUP BY b.DEPT_ID
+ORDER BY count_stu DESC

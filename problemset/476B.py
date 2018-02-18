@@ -1,3 +1,4 @@
+# http://codeforces.com/contest/476/submission/8195732
 import math
 
 def nCr(n,r):
@@ -10,7 +11,7 @@ m = x.count('-')
 x = input()
 p_ = x.count('+')
 m_ = x.count('-')
-q_ = x.count('?')
+n = x.count('?')
 a = p - p_
 b = m - m_
 

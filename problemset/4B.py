@@ -1,3 +1,4 @@
+# http://codeforces.com/contest/4/submission/9363077
 d, sumTime = [int(a) for a in input().split()]
 minMax, minT, maxT = [], 0, 0
 

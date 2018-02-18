@@ -1,3 +1,4 @@
+# http://codeforces.com/contest/489/submission/8727302
 m, s = [int(i) for i in input().split()]
 
 def find(rev = False):
