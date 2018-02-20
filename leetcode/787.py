@@ -25,7 +25,7 @@ class Solution:
                 return p
             if k > 0:
                 for j in f[i]:
-                heapq.heappush(heap, (p + f[i][j], j, k - 1))
+                    heapq.heappush(heap, (p + f[i][j], j, k - 1))
         return -1
 
 # dynamic programming
