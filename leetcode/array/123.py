@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/
+# http://bit.ly/2G4lHca
 
 class Solution:
   def maxProfit(self, prices):
@@ -8,33 +9,25 @@ class Solution:
     """
 
     # 188
-    # O(kN) time complexity and O(1) space complexity
-    # if k == 0:
-    #   return 0
-    # elif k >= len(prices) / 2:
-    #   return sum(prices[i] - prices[i - 1] for i in range(1, len(prices)) if prices[i] > prices[i - 1])
-    #
-    # buy = [-999999999] * (k + 1)
-    # buySell = [0] * (k + 1)
-    #
-    # for p in prices:
-    #   for i in range(k, 0, -1):
-    #       buySell[i] = max(buySell[i], buy[i] + p)
-    #       buy[i] = max(buy[i], buySell[i-1] - p)
-    # return buySell[-1]
+    # O(kN) time complexity and O(k) space complexity
+    # correct and general solution for all k
+    # if k is infinity, space complexity can be reduced to O(1)
+    if k == 0:
+      return 0
+    elif k >= len(prices) / 2:
+      return sum(prices[i] - prices[i - 1] for i in range(1, len(prices)) if prices[i] > prices[i - 1])
 
-    # O(kN) time complexity and O(N) space complexity
-    k = 2
-    buy = [-999999999] * k
-    buySell = [0] * k
+    buy = [-999999999] * (k + 1)
+    buySell = [0] * (k + 1)
 
     for p in prices:
-      for i in range(k):
-        buy[i] = max(buy[i], buySell[i - 1] - p if i != 0 else -p)
-        buySell[i] = max(buySell[i], buy[i] + p)
-
+      for i in range(k, 0, -1):
+          buySell[i] = max(buySell[i], buy[i] + p)
+          buy[i] = max(buy[i], buySell[i-1] - p)
     return buySell[-1]
 
+
+    # written by me
     # O(N^2)
     # def findHigh(prices):
     #   minPrice = 99999999

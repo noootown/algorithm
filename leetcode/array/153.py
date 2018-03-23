@@ -5,8 +5,5 @@ import bisect
 
 class Solution:
   def findMin(self, nums):
-    self.__getitem__ = lambda i: nums[i] <= nums[-1]
-    return nums[bisect.bisect(self, False, 0, len(nums))]
-
-s = Solution()
-print(s.findMin([4, 5, 6, 7, 0, 1, 2]))
+    return nums[bisect.bisect([_ <= nums[-1] for _ in nums], False)]
+
