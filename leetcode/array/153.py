@@ -6,4 +6,3 @@ import bisect
 class Solution:
   def findMin(self, nums):
     return nums[bisect.bisect([_ <= nums[-1] for _ in nums], False)]
-
