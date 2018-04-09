@@ -20,8 +20,3 @@ class Solution:
 
 s = Solution()
 s.isMatch("aab", "c*a*b")
-
-
-
-
-
