@@ -1,5 +1,6 @@
 # input list
 # output the possible outcome by using +, -, * operations
+# leetcode 241
 arr = [1,2,3]
 
 N = len(arr)
