@@ -31,3 +31,16 @@ class Solution:
       temp = temp.next
     del node_map[None]
     return node_map[head]
+
+  class Solution(object):
+    def copyRandomList(self, head):
+      dic = {}
+      m = n = head
+      while m:  # copy node itself
+        dic[m] = RandomListNode(m.label)
+        m = m.next
+      while n:  # link the node and copy the random pointer of the current node
+        dic[n].next = dic.get(n.next)
+        dic[n].random = dic.get(n.random)
+        n = n.next
+      return dic.get(head)

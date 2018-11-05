@@ -11,3 +11,6 @@ class Solution:
     """
     vowels = re.findall('(?i)[aeiou]', s)
     return re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)
+
+assert Solution().reverseVowels('hello') == 'holle'
+assert Solution().reverseVowels('hEllo') == 'hollE'

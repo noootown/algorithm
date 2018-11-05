@@ -27,6 +27,29 @@ class Solution:
 s = Solution()
 s.lengthOfLIS([0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15])
 
+class Solution:
+  def lengthOfLIS(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    if not nums:
+      return 0
+
+    N = len(nums)
+    memo = [nums[0]]
+    maxans = 1
+    for num in nums[1:]:
+      if num > memo[-1]:
+        memo.append(num)
+      else:
+        # maxans = max(maxans, len(memo))
+        idx = bisect.bisect_left(memo, num)
+        memo[idx] = num
+        # memo = memo[:idx+1]
+    maxans = max(maxans, len(memo))
+    return maxans
+
 '''
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
