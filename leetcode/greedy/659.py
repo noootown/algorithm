@@ -62,16 +62,19 @@ class Solution:
       return False
     return True
 
+from collections import Counter
+
 class Solution:
   def isPossible(self, nums):
     """
     :type nums: List[int]
     :rtype: bool
     """
-    left = collections.Counter(nums)
-    end = collections.Counter()
+    left, end = Counter(nums), Counter()
+
     for i in nums:
-      if not left[i]: continue
+      if not left[i]:
+        continue
       left[i] -= 1
       if end[i - 1] > 0:
         end[i - 1] -= 1

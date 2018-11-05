@@ -24,3 +24,4 @@ class Solution:
       dp = tmp_dp
     return dp[0]
 
+assert Solution().longestPalindromeSubseq('bbbab') == 4

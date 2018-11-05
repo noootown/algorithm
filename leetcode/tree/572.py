@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/subtree-of-another-tree/description/
 # http://bit.ly/2JQywID
 
+# 92ms
 class Solution:
   def isSubtree(self, s, t):
     """
@@ -14,6 +15,7 @@ class Solution:
 
     return convert(t) in convert(s)
 
+# 128ms
 from hashlib import sha256
 class Solution:
   def isSubtree(self, s, t):
@@ -42,3 +44,27 @@ class Solution:
       return (node.merkle == t.merkle or dfs(node.left) or dfs(node.right))
 
     return dfs(s)
+
+# 76ms
+class Solution:
+  def isSubtree(self, s, t):
+    """
+    :type s: TreeNode
+    :type t: TreeNode
+    :rtype: bool
+    """
+
+    def dfs(s, t, on):
+      if not s and not t:
+        return True
+      if not s or not t:
+        return False
+      if on and s.val != t.val:
+        return False
+      if s.val == t.val:
+        if dfs(s.left, t.left, True) and dfs(s.right, t.right, True):
+          return True
+      return dfs(s.left, t, False) or dfs(s.right, t, False)
+
+    return dfs(s, t, False)
+

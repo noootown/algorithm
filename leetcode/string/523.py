@@ -8,7 +8,7 @@ class Solution(object):
     :type k: int
     :rtype: bool
     """
-    if 0 == k:
+    if k == 0:
       return len(nums) >= 2 and any(i == 0 and j == 0 for i, j in zip(nums, nums[1:]))
 
     sums = 0

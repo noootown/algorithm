@@ -2,6 +2,7 @@
 # https://leetcode.com/submissions/detail/150313692/
 
 # answer 1
+# 476 ms
 class Solution:
   def canIWin(self, maxChoosableInteger, desiredTotal):
     """
@@ -39,6 +40,7 @@ class Solution:
     return search(0, 0)
 
 # answer 2
+# 984 ms
 class Solution:
   def canIWin(self, maxChoosableInteger, desiredTotal):
     """

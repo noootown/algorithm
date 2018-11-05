@@ -36,10 +36,6 @@ class Solution:
         if w1 == w2:
           nxt[i] = min(nxt[i], cur[i - 1])
       cur, nxt = nxt, cur
-      print(cur)
-      print(nxt)
-      print('-------------------')
     return cur[-1]
 
-s = Solution()
-print(s.minDistance("sea", "eat"))
+assert Solution().minDistance("sea", "eat") == 2

@@ -27,7 +27,6 @@ class Solution:
         res += 1
         m -= z
         n -= o
-      print(m, n)
 
     return res
 
@@ -45,4 +44,4 @@ class Solution:
 
     return res
 
-print(Solution().findMaxForm(["10", "0001", "111001", "1", "0"], 5, 3))
+assert Solution().findMaxForm(["10", "0001", "111001", "1", "0"], 5, 3) == 4

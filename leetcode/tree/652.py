@@ -5,6 +5,7 @@
 
 from collections import defaultdict
 
+# 112ms
 class Solution:
   def findDuplicateSubtrees(self, root):
     """
@@ -21,6 +22,7 @@ class Solution:
     tuplify(root)
     return [roots[0] for roots in trees.values() if roots[1:]]
 
+# 80ms
 class Solution:
   def findDuplicateSubtrees(self, root):
     """
@@ -29,6 +31,7 @@ class Solution:
     """
     def getid(root):
       if root:
+        # tuple as key
         id = treeid[root.val, getid(root.left), getid(root.right)]
         trees[id].append(root)
         return id
